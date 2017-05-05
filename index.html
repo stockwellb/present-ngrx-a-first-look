@@ -24,8 +24,82 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>@ngrx/store</h1>
+					<p>A quick look</p>
+					<aside class="notes">
+                        <p>@ngrx/store is an RxJS powered state management for Angular applications, inspired by Redux.</p>
+					</aside>
+				</section>
+				<section>
+					<p>What is RxJS?</p>
+                    <aside class="notes">
+                        <p>Reactive Extensions for JavaScript is a library for transforming, composing, and querying streams of data.</p>
+                    </aside>
+				</section>
+                <section>
+                    <p>With rxjs, everything is a stream.</p>
+                </section>
+				<section>
+					<p>How about an example?</p>
+				</section>
+				<section data-background-iframe="https://embed.plnkr.co/IJikndZI4FflMWYiuBZH/" data-background-interactive>
+                    </section>
+                <section>
+                    <p>So then what is Redux?</p>
+                </section>
+                <section>
+                    <p>Well, it's an implementation of Flux</p>
+                </section>
+                <section>
+                    <p>Flux?</p>
+                </section>
+                <section>
+                    <p>Yes, Flux</p>
+                    <img src="flux-800x167.png">
+                    <p>An application architecture</p>
+                </section>
+                <section>
+                    <p>@ngrx/store</p>
+                    <p class="fragment">and some @ngrx/effects</p>
+                    <aside class="notes">
+                        <p>@ngrx/store is an RxJS powered state management for Angular applications, inspired by Redux.</p>
+                    </aside>
+                </section>
+                <section>
+                    <p>Actions</p>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+                    import { Action } from '@ngrx/store';
+                    import { SomeThing } from '../models';
+
+                    export const ADD_SOME_THING = '[SomeThing] Add';
+                    export class AddSomeThingAction implements Action {
+                      readonly type = ADD_SOME_THING;
+
+                      constructor(public payload: SomeThing) { }
+                    }</code>
+                    </pre>
+                </section>
+                <section>
+                    <p>Dispatcher</p>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+                        @Component({
+                              selector: 'some-thing-page',
+                              template: 'some-thing.html'
+                            export class CollectionPageComponent {
+                              someThing: Observable;
+
+                              constructor(store: Store) {
+                                this.someThing = store.dispatch(
+                                    new AddSomeThingAction(
+                                        models.SomeThing.Create()));
+                              }
+                            }</code></pre>
+                </section>
 			</div>
 		</div>
 
