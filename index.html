@@ -25,80 +25,246 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>@ngrx/store</h1>
-					<p>A quick look</p>
-					<aside class="notes">
-                        <p>@ngrx/store is an RxJS powered state management for Angular applications, inspired by Redux.</p>
-					</aside>
+                    <p>unboxing</p>
+                    <h1>@ngrx/store</h1>
 				</section>
+                <section>
+                    <p>@ngrx/store</p>
+                    <ul>
+                        <li class="fragment">State management</li>
+                        <li class="fragment">Designed for Angular</li>
+                        <li class="fragment">RxJs Power</li>
+                        <li class="fragment">Inspired by Redux</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>@ngrx/store is a controlled state container designed to help write performant, consistent applications on top of Angular.</p>
+                        <p>Core tenets:</p>
+                        <ul>
+                            <li>State is a single immutable data structure</li>
+                            <li>Actions describe state changes</li>
+                            <li>Pure functions called reducers take the previous state and the next action to compute the new state</li>
+                            <li>State accessed with the Store, an observable of state and an observer of actions</li>
+                        </ul>
+                    </aside>
+                </section>
 				<section>
 					<p>What is RxJS?</p>
                     <aside class="notes">
-                        <p>Reactive Extensions for JavaScript is a library for transforming, composing, and querying streams of data.</p>
+                        <p>RxJS or Reactive Extensions for JavaScript is a library for transforming, composing, and querying streams of data.</p>
+                        <ul>
+                            <li>All kinds of data</li>
+                            <li>Simple</li>
+                            <li>Events</li>
+                            <li>Complex flows of data</li>
+                        </ul>
                     </aside>
 				</section>
+                <section>
+                    <aside>
+                    <blockquote class="twitter-tweet" data-lang="en"><p lang="und" dir="ltr"><a href="https://t.co/aIQTdbFPrA">pic.twitter.com/aIQTdbFPrA</a></p>&mdash; Todd Motto (@toddmotto) <a href="https://twitter.com/toddmotto/status/687104621421158400">January 13, 2016</a></blockquote>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </aside>
+                </section>
                 <section>
                     <p>With rxjs, everything is a stream.</p>
                 </section>
 				<section>
-					<p>How about an example?</p>
+					<p>Here's an example</p>
 				</section>
 				<section data-background-iframe="https://embed.plnkr.co/IJikndZI4FflMWYiuBZH/" data-background-interactive>
                     </section>
                 <section>
-                    <p>So then what is Redux?</p>
+                    <p>What is Redux?</p>
                 </section>
                 <section>
-                    <p>Well, it's an implementation of Flux</p>
+                    <p>It's an implementation of Flux</p>
                 </section>
                 <section>
-                    <p>Flux?</p>
-                </section>
-                <section>
-                    <p>Yes, Flux</p>
+                    <p>Flux</p>
                     <img src="flux-800x167.png">
                     <p>An application architecture</p>
                 </section>
                 <section>
                     <p>@ngrx/store</p>
-                    <p class="fragment">and some @ngrx/effects</p>
                     <aside class="notes">
                         <p>@ngrx/store is an RxJS powered state management for Angular applications, inspired by Redux.</p>
                     </aside>
                 </section>
                 <section>
-                    <p>Actions</p>
-                </section>
-                <section>
-                    <pre><code data-trim data-noescape>
-                    import { Action } from '@ngrx/store';
-                    import { SomeThing } from '../models';
+                    <p>Action</p>
+                    <pre>
+                        <code data-trim data-noescape>
+import { Action } from '@ngrx/store';
+import { SomeThing } from '../models';
 
-                    export const ADD_SOME_THING = '[SomeThing] Add';
-                    export class AddSomeThingAction implements Action {
-                      readonly type = ADD_SOME_THING;
+export const ADD_SOME_THING = '[SomeThing] Add';
+export class AddSomeThingAction implements Action {
+  readonly type = ADD_SOME_THING;
 
-                      constructor(public payload: SomeThing) { }
-                    }</code>
+  constructor(public payload: SomeThing) { }
+}
+                        </code>
                     </pre>
                 </section>
                 <section>
                     <p>Dispatcher</p>
+                    <pre><code data-trim data-noescape>
+@Component({
+      selector: 'some-thing-page',
+      template: 'some-thing.html'
+    export class CollectionPageComponent {
+      someThing: Observable;
+
+      constructor(store: Store) {
+        this.someThing = store.dispatch(
+            new AddSomeThingAction(
+                models.SomeThing.Create()));
+      }
+    }
+                    </code></pre>
                 </section>
                 <section>
-                    <pre><code data-trim data-noescape>
-                        @Component({
-                              selector: 'some-thing-page',
-                              template: 'some-thing.html'
-                            export class CollectionPageComponent {
-                              someThing: Observable;
+                    <p>Store</p>
+                    <pre>
+                        <code>
+export interface State {
+  ids: string[];
+  entities: { [id: string]: SomeThing };
+};
 
-                              constructor(store: Store) {
-                                this.someThing = store.dispatch(
-                                    new AddSomeThingAction(
-                                        models.SomeThing.Create()));
-                              }
-                            }</code></pre>
+export const initialState: State = {
+  ids: [],
+  entities: {},
+};
+                        </code>
+                    </pre>
+                    <p>state</p>
+                </section>
+                <section>
+                    <p>Store</p>
+                    <pre>
+                        <code>
+export function reducer(state = initialState, action: Actions): State {
+  switch (action.type) {
+    case ADD_SOME_THING: {
+      //build new state
+    }
+
+    default: {
+      return state;
+    }
+  }
+}
+                        </code>
+                    </pre>
+                    <p>reducer</p>
+                </section>
+                <section>
+                    <p>Store</p>
+                    <pre>
+                        <code>
+const items = [action.payload].filter(thing => {
+                return !state.entities[thing.id]
+                });
+const ids = items.map(q => q.id);
+
+const newEntities = [action.payload].reduce(
+(entities: { [id: string]: Thing }, thing: Thing) => {
+  return Object.assign(entities, {
+      [thing.id]: thing
+  });
+}, {});
+
+                        </code>
+                    </pre>
+                    <p>immutable state</p>
+                </section>
+                <section>
+                    <p>Store</p>
+                    <pre>
+                        <code>
+return {
+  ids: [...state.ids, ...ids],
+  entities: Object.assign({}, state.entities, newEntities),
+}
+                        </code>
+                    </pre>
+                    <p>reducers return new state</p>
+                </section>
+                <section>
+                    <p>Store</p>
+                    <pre>
+                        <code>
+export const getThingsState = (state: State) => {
+    return state.things;
+};
+
+export const getSelectedThing =
+  createSelector(getThingState, fromThings.getSelected);
+
+                        </code>
+                    </pre>
+                    <p>selectors</p>
+                </section>
+                <section>
+                    <p>Store</p>
+                    <pre>
+                        <code>
+const reducers = {
+    things: fromThings.reducer,
+    otherThings: fromOther.reducer
+};
+
+const mainReducer: ActionReducer = combineReducers(reducers);
+
+
+export function reducer(state: any, action: any) {
+    return mainReducer(state, action);
+}
+                        </code>
+                    </pre>
+                    <p>combining reducers</p>
+                </section>
+                <section>
+                    <p>Store</p>
+                    <pre>
+                        <code>
+import { StoreModule } from '@ngrx/store';
+import { reducer } from '../reducers'
+
+@NgModule({
+    declarations: [],
+    imports: [
+        StoreModule.provideStore(reducer),
+    ],
+    bootstrap: [],
+    entryComponents: [],
+    providers: []
+})
+                        </code>
+                    </pre>
+                    <p>configuration</p>
+                </section>
+                <section>
+                    <p>State management strategies</p>
+                    <ul>
+                    <li class="fragment">Data should be normalized</li>
+                    <li class="fragment">i.e., Only store an object once. Reference it's id.</li>
+                    <li class="fragment">Usually one reducer per type</li>
+                    <li class="fragment">Avoid arrays for object collections.</li>
+                    <li class="fragment">
+                        <pre>
+                            <code>
+ids: [1, 2, 3],
+entities: {
+    1: {id: 1, name='one'},
+    2: {id: 2, name='two'},
+    3: {id: 3, name='three'},
+}
+                            </code>
+                        </pre>
+                    </li>
+                    </ul>
                 </section>
 			</div>
 		</div>
@@ -111,7 +277,13 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
-				dependencies: [
+                transition: 'slide',
+                parallaxBackgroundImage: 'parallax.jpg',
+
+                // Parallax background size
+                parallaxBackgroundSize: '3840px 1200px',
+
+                dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
