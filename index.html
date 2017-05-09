@@ -105,6 +105,9 @@ export class AddSomeThingAction implements Action {
 }
                         </code>
                     </pre>
+                    <aside class="notes">
+                        <p>The action is general a type and a payload</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Dispatcher</p>
@@ -122,6 +125,9 @@ export class AddSomeThingAction implements Action {
       }
     }
                     </code></pre>
+                    <aside class="notes">
+                        <p>The dispatcher will be called from a component</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -139,6 +145,9 @@ export const initialState: State = {
                         </code>
                     </pre>
                     <p>state</p>
+                    <aside class="notes">
+                        <p>State is established in the store. Generally in the reducer</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -158,6 +167,9 @@ export function reducer(state = initialState, action: Actions): State {
                         </code>
                     </pre>
                     <p>reducer</p>
+                    <aside class="notes">
+                        <p>the reducer takes the existing state, an action and returns a new state</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -178,6 +190,9 @@ const newEntities = [action.payload].reduce(
                         </code>
                     </pre>
                     <p>immutable state</p>
+                    <aside class="notes">
+                        <p>This is hand rolled immutablility. We could use a library like immutable.js</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -190,6 +205,9 @@ return {
                         </code>
                     </pre>
                     <p>reducers return new state</p>
+                    <aside class="notes">
+                        <p>Once again the reducer return the new state</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -205,6 +223,9 @@ export const getSelectedThing =
                         </code>
                     </pre>
                     <p>selectors</p>
+                    <aside class="notes">
+                        <p>Selectors can be nested. Here we're using the selected library.</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -224,6 +245,9 @@ export function reducer(state: any, action: any) {
                         </code>
                     </pre>
                     <p>combining reducers</p>
+                    <aside class="notes">
+                        <p>Reducers are combined into one reducer that will be passed into @ngrx/store.</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Store</p>
@@ -244,6 +268,9 @@ import { reducer } from '../reducers'
                         </code>
                     </pre>
                     <p>configuration</p>
+                    <aside class="notes">
+                        <p>Here we pass our top level reducer into the store module.</p>
+                    </aside>
                 </section>
                 <section>
                     <p>State management strategies</p>
@@ -265,6 +292,9 @@ entities: {
                         </pre>
                     </li>
                     </ul>
+                    <aside class="notes">
+                        <p>state design is VERY important</p>
+                    </aside>
                 </section>
                 <section>
                     <p>Questions</p>
