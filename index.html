@@ -191,7 +191,7 @@ const newEntities = [action.payload].reduce(
                     </pre>
                     <p>immutable state</p>
                     <aside class="notes">
-                        <p>This is hand rolled immutablility. We could use a library like immutable.js</p>
+                        <p>This is hand rolled immutability. We could use a library like immutable.js</p>
                     </aside>
                 </section>
                 <section>
@@ -224,7 +224,11 @@ export const getSelectedThing =
                     </pre>
                     <p>selectors</p>
                     <aside class="notes">
-                        <p>Selectors can be nested. Here we're using the selected library.</p>
+                        <p>Selectors can be nested/composed. Here we're using the Reselect library.
+                        The idea is that selectors can be composed and only recomputed if
+                        their result has changed since the last time they where called. The === operator
+                        give us this power with immutable state. Like a snowball rolling down hill,
+                        reducers accumulate value through iteration...</p>
                     </aside>
                 </section>
                 <section>
