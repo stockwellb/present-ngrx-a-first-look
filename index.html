@@ -1,333 +1,282 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-                    <p>unboxing</p>
-                    <h1>@ngrx/store</h1>
-				</section>
-                <section>
-                    <p>@ngrx/store</p>
-                    <ul>
-                        <li class="fragment">State management</li>
-                        <li class="fragment">Designed for Angular</li>
-                        <li class="fragment">RxJs Power</li>
-                        <li class="fragment">Inspired by Redux</li>
-                    </ul>
-                    <aside class="notes">
-                        <p>@ngrx/store is a controlled state container designed to help write performant, consistent applications on top of Angular.</p>
-                        <p>Core tenets:</p>
-                        <ul>
-                            <li>State is a single immutable data structure.</li>
-                            <li>Actions describe state changes.</li>
-                            <li>Pure functions called reducers take the previous state and the next action to compute the new state.</li>
-                            <li>State accessed with the Store, an observable of state and an observer of actions.</li>
-                        </ul>
-                    </aside>
-                </section>
-				<section>
-					<p>What is RxJS?</p>
-                    <aside class="notes">
-                        <p>RxJS or Reactive Extensions for JavaScript is a library for transforming, composing, and querying streams of data.</p>
-                        <ul>
-                            <li>All kinds of data</li>
-                            <li>Simple</li>
-                            <li>Events</li>
-                            <li>Complex flows of data</li>
-                        </ul>
-                    </aside>
-				</section>
-                <section>
-                    <aside>
-                    <blockquote class="twitter-tweet" data-lang="en"><p lang="und" dir="ltr"><a href="https://t.co/aIQTdbFPrA">pic.twitter.com/aIQTdbFPrA</a></p>&mdash; Todd Motto (@toddmotto) <a href="https://twitter.com/toddmotto/status/687104621421158400">January 13, 2016</a></blockquote>
-                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </aside>
-                </section>
-                <section>
-                    <p>With rxjs, everything is a stream.</p>
-                </section>
-				<section>
-					<p>Here's an example</p>
-				</section>
-				<section data-background-iframe="https://embed.plnkr.co/IJikndZI4FflMWYiuBZH/" data-background-interactive>
-                    </section>
-                <section>
-                    <p>What is Redux?</p>
-                </section>
-                <section>
-                    <p>It's an implementation of Flux</p>
-                </section>
-                <section>
-                    <p>Flux</p>
-                    <img src="flux-800x167.png">
-                    <p>An application architecture</p>
-                </section>
-                <section>
-                    <p>@ngrx/store</p>
-                    <aside class="notes">
-                        <p>@ngrx/store is an RxJS powered state management for Angular applications, inspired by Redux.</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Action</p>
-                    <pre>
-                        <code data-trim data-noescape>
-import { Action } from '@ngrx/store';
-import { SomeThing } from '../models';
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <p>unboxing</p>
+            <h1>@ngrx/store</h1>
+        </section>
+        <section>
+            <p>@ngrx/<span style="color:palevioletred">store</span></p>
+            <aside class="notes">
+                <p>@ngrx/store is a controlled state container designed to help write performant, consistent
+                    applications on top of Angular.</p>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:cornflowerblue">State</span> management</p>
+            <aside class="notes">
+                <p>Avoid spreading our state all over the application.</p>
+            </aside>
+        </section>
+        <section>
+            <p>Designed for <span style="color:palevioletred">Angular</span></p>
+            <aside class="notes">
+                <p>Written by angular team members for Angular.</p>
+            </aside>
+        </section>
+        <section>
+            <p>Powered by <span style="color:cornflowerblue">RxJs</span></p>
+            <aside class="notes">
+                <p>Reactive extension for JavaScript.</p>
+            </aside>
+        </section>
+        <section>
+            <p>Inspired by <span style="color:palevioletred">Redux</span></p>
+            <aside class="notes">
+                <p>A flux pattern</p>
+            </aside>
+        </section>
+        <section>
+            <p>RxJs?</p>
+            <aside class="notes">
+                <p>RxJS or Reactive Extensions for JavaScript</p>
+            </aside>
+        </section>
+        <section>
+            <p>RxJs<span style="color:cornflowerblue"> transforms,</span><span
+                    style="color:palevioletred"> composes,</span> and <span style="color:lightgreen"> queries</span>
+                streams of data</p>
+        </section>
+        <section>
+            <aside>
+                <blockquote class="twitter-tweet" data-lang="en"><p lang="und" dir="ltr"><a
+                        href="https://t.co/aIQTdbFPrA">pic.twitter.com/aIQTdbFPrA</a></p>&mdash; Todd Motto (@toddmotto)
+                    <a href="https://twitter.com/toddmotto/status/687104621421158400">January 13, 2016</a></blockquote>
+                <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </aside>
+        </section>
+        <section>
+            <p>With rxjs, everything is a <span style="color:cornflowerblue">stream</span>.</p>
+        </section>
+        <section>
+            <p>Here's an <span style="color:palevioletred">example</span></p>
+        </section>
+        <section data-background-iframe="https://embed.plnkr.co/IJikndZI4FflMWYiuBZH/" data-background-interactive>
+        </section>
+        <section>
+            <p>Redux?</p>
+        </section>
+        <section>
+            <p>It's an <span style="color:cornflowerblue">implementation</span> of <span style="color:palevioletred">Flux</span>
+            </p>
+        </section>
+        <section>
+            <p><span style="color:lightgreen">Flux</span> is an application <span style="color:cornflowerblue">architecture</span>
+            </p>
+            <img src="flux-800x167.png">
+        </section>
+        <section>
+            <p>(<span style="color:palevioletred">state</span>, <span style="color:cornflowerblue">action</span>) =>
+                <span style="color:lightgreen">state</span>
+            <p>
+        </section>
+        <section>
+            <p>Core <span style="color:palevioletred">tenets</span> of @ngrx/<span
+                    style="color:cornflowerblue">store</span></p>
+        </section>
+        <section>
+            <p><span style="color:palevioletred">State</span> is a single <span
+                    style="color:lightgreen">immutable</span> data structure.</p>
+        </section>
+        <section>
+            <p><span style="color:palevioletred">Actions</span> describe state <span
+                    style="color:lightgreen">changes</span>.</p>
+        </section>
+        <section>
+            <p>Pure functions or <span style="color:palevioletred">reducers</span> take <span
+                    style="color:cornflowerblue">state</span> and an <span style="color:lightgreen">action</span> to
+                compute new <span style="color:cornflowerblue">state</span>.</p>
+            <aside class="notes">
+                <p>A function whose return value is determined only by its input values, with no observable side-effects.</p>
+            </aside>
+        </section>
+        <section>
+            <p>(<span style="color:palevioletred">state</span>, <span style="color:cornflowerblue">action</span>) =>
+                <span style="color:lightgreen">state</span>
+            <p>
+                <aside class="notes">
+            <p>Remember this?</p>
+            </aside>
+        </section>
+        <section>
+            <p>State accessed with the Store, an <span style="color:palevioletred">observable</span> of state and an
+                <span style="color:cornflowerblue">observer</span> of actions.</p>
+        </section>
+        <section>
+            <p>class <span style="color:yellow">AddItemAction</span> implements <span style="color:yellow">Action</span>
+            </p>
+        </section>
+        <section>
+            <p>{ <span style="color:mediumpurple">type:</span> <span style="color:lightgreen">'ADD_ITEM'</span>, <span
+                    style="color:mediumpurple">payload:</span> item }</p>
+            <aside class="notes">
+                <p>The action is generally a type and a payload</p>
+            </aside>
+        </section>
+        <section>
+            <p>store.<span style="color:yellow">dispatch</span>(<span style="color:mediumpurple">new</span>
+                AddItemAction(item));</p>
+            <aside class="notes">
+                <p>The dispatcher sends an action to the reducer</p>
+            </aside>
+        </section>
+        <section>
+            <p>{ <span style="color:mediumpurple">ids:</span> [1,2], <span style="color:mediumpurple">entities:</span>
+                {1: 'one', 2: 'two'} }</p>
+            <aside class="notes">
+                <p>State is established in the reducers.</p>
+                <p>Single, immutable state tree updated only through explicitly defined and dispatched actions</p>
+            </aside>
+        </section>
+        <section>
+            <p>case <span style="color:yellow">ADD_ITEM</span>: { <span style="color:lightgreen">//build new state</span> }</p>
+            <aside class="notes">
+                <p>The reducer takes the existing state, an action and returns a new state</p>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:mediumpurple">default:</span> { <span style="color:mediumpurple">return</span> state; }</p>
+            <aside class="notes">
+                <p>If there's no matching action we always return the existing state</p>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:cornflowerblue">Immutable</span> state</p>
+            <aside class="notes">
+                <ul>
+                    <li>Immutability</li>
+                    <li>Single source of truth</li>
+                    <li>Contract</li>
+                    <li>Could use immutable.js</li>
+                </ul>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:mediumpurple">ids</span>: [...state.ids, ...ids]</p>
+            <aside class="notes">
+                <p>Notice we do not mutate</p>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:mediumpurple">entities</span>: { ...state.entities, [id: item.id]: item }</p>
+            <aside class="notes">
+                <p>Adding an item</p>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:yellow">getItemsState</span> = (state: State) => state.<span style="color:yellow">entities</span></p>
+            <aside class="notes">
+                <p>Selectors can be nested/composed and only recomputed if
+                    their result has changed since the last time they where called</p>
+            </aside>
+        </section>
+        <section>
+            <p><span style="color:cornflowerblue">Reducers</span> are combined into <span style="color:palevioletred">one</span></p>
+            <aside class="notes">
+                <p>Reducers are combined into one reducer that will be passed into @ngrx/store.</p>
+            </aside>
+        </section>
+        <section>
+            <p>StoreModule.<span style="color:yellow">provideStore</span>(reducer)</p>
+            <aside class="notes">
+                <p>Here we pass our top level reducer into the store module.</p>
+            </aside>
+        </section>
+        <section>
+            <p>State management <span style="color:cornflowerblue">strategies</span></p>
+            <aside class="notes">
+                <p>state design is very important</p>
+            </aside>
+        </section>
+        <section>
+            <p>Data should be <span style="color:palevioletred">normalized</span>.</p>
+        </section>
+        <section>
+            <p>Only store an object once. <span style="color:cornflowerblue">Reference</span> it's id.</p>
+        </section>
+        <section>
+            <p>Usually <span style="color:palevioletred">one</span> reducer per <span style="color:cornflowerblue">type</span>.</p>
+        </section>
+        <section>
+            <p><span style="color:palevioletred">Avoid</span> arrays for object collections.</p>
+        </section>
+        <section>
+            <p>Make use of <span style="color:palevioletred">map</span>, <span style="color:cornflowerblue">filter</span> and <span style="color:lightgreen">reduce</span></p>
+        </section>
+        <section>
+            <p><span style="color:yellow">items</span> = ids.<span style="color:yellow">map</span>(id => state.<span style="color:yellow">entities</span>[id])</p>
+        </section>
+        <section>
+            <p>@ngrx/<span style="color:cornflowerblue">effects</span></p>
+        </section>
+        <section>
+            <p>Maybe <span style="color:palevioletred">next</span> <span style="color:cornflowerblue">time</span></p>
+        </section>
+        <section>
+            <p>Questions</p>
+            <p class="fragment"><span style="color:lightgreen">Remember</span>, I'm a @ngrx/<span style="color:cornflowerblue">store</span> noob.</p>
+        </section>
+    </div>
+</div>
 
-export const ADD_SOME_THING = '[SomeThing] Add';
-export class AddSomeThingAction implements Action {
-  readonly type = ADD_SOME_THING;
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 
-  constructor(public payload: SomeThing) { }
-}
-                        </code>
-                    </pre>
-                    <aside class="notes">
-                        <p>The action is general a type and a payload</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Dispatcher</p>
-                    <pre><code data-trim data-noescape>
-@Component({
-      selector: 'some-thing-page',
-      template: 'some-thing.html'
-    export class CollectionPageComponent {
-      someThing: Observable;
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        transition: 'none',
+//                parallaxBackgroundImage: 'parallax.jpg',
+//
+//                // Parallax background size
+//                parallaxBackgroundSize: '3840px 1200px',
 
-      constructor(store: Store) {
-        this.someThing = store.dispatch(
-            new AddSomeThingAction(
-                models.SomeThing.Create()));
-      }
-    }
-                    </code></pre>
-                    <aside class="notes">
-                        <p>The dispatcher will be called from a component</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-export interface State {
-  ids: string[];
-  entities: { [id: string]: SomeThing };
-};
-
-export const initialState: State = {
-  ids: [],
-  entities: {},
-};
-                        </code>
-                    </pre>
-                    <p>state</p>
-                    <aside class="notes">
-                        <p>State is established in the store. Generally in the reducer</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-export function reducer(state = initialState, action: Actions): State {
-  switch (action.type) {
-    case ADD_SOME_THING: {
-      //build new state
-    }
-
-    default: {
-      return state;
-    }
-  }
-}
-                        </code>
-                    </pre>
-                    <p>reducer</p>
-                    <aside class="notes">
-                        <p>the reducer takes the existing state, an action and returns a new state</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-const items = [action.payload].filter(thing => {
-                return !state.entities[thing.id]
-                });
-const ids = items.map(q => q.id);
-
-const newEntities = [action.payload].reduce(
-(entities: { [id: string]: Thing }, thing: Thing) => {
-  return Object.assign(entities, {
-      [thing.id]: thing
-  });
-}, {});
-
-                        </code>
-                    </pre>
-                    <p>immutable state</p>
-                    <aside class="notes">
-                        <p>This is hand rolled immutability. We could use a library like immutable.js</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-return {
-  ids: [...state.ids, ...ids],
-  entities: Object.assign({}, state.entities, newEntities),
-}
-                        </code>
-                    </pre>
-                    <p>reducers return new state</p>
-                    <aside class="notes">
-                        <p>Once again the reducer return the new state</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-export const getThingsState = (state: State) => {
-    return state.things;
-};
-
-export const getSelectedThing =
-  createSelector(getThingState, fromThings.getSelected);
-
-                        </code>
-                    </pre>
-                    <p>selectors</p>
-                    <aside class="notes">
-                        <p>Selectors can be nested/composed. Here we're using the Reselect library.
-                        The idea is that selectors can be composed and only recomputed if
-                        their result has changed since the last time they where called. The === operator
-                        give us this power with immutable state. Like a snowball rolling down hill,
-                        reducers accumulate value through iteration...</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-const reducers = {
-    things: fromThings.reducer,
-    otherThings: fromOther.reducer
-};
-
-const mainReducer: ActionReducer = combineReducers(reducers);
-
-
-export function reducer(state: any, action: any) {
-    return mainReducer(state, action);
-}
-                        </code>
-                    </pre>
-                    <p>combining reducers</p>
-                    <aside class="notes">
-                        <p>Reducers are combined into one reducer that will be passed into @ngrx/store.</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Store</p>
-                    <pre>
-                        <code>
-import { StoreModule } from '@ngrx/store';
-import { reducer } from '../reducers'
-
-@NgModule({
-    declarations: [],
-    imports: [
-        StoreModule.provideStore(reducer),
-    ],
-    bootstrap: [],
-    entryComponents: [],
-    providers: []
-})
-                        </code>
-                    </pre>
-                    <p>configuration</p>
-                    <aside class="notes">
-                        <p>Here we pass our top level reducer into the store module.</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>State management strategies</p>
-                    <ul>
-                    <li class="fragment">Data should be normalized.</li>
-                    <li class="fragment">i.e., Only store an object once. Reference it's id.</li>
-                    <li class="fragment">Usually one reducer per type.</li>
-                    <li class="fragment">Avoid arrays for object collections.</li>
-                    <li class="fragment">
-                        <pre>
-                            <code>
-ids: [1, 2, 3],
-entities: {
-    1: {id: 1, name='one'},
-    2: {id: 2, name='two'},
-    3: {id: 3, name='three'},
-}
-                            </code>
-                        </pre>
-                    </li>
-                    </ul>
-                    <aside class="notes">
-                        <p>state design is VERY important</p>
-                    </aside>
-                </section>
-                <section>
-                    <p>Questions</p>
-                    <p class="fragment">Remember, I'm a @ngrx/store noob.</p>
-                </section>
-			</div>
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-                transition: 'slide',
-                parallaxBackgroundImage: 'parallax.jpg',
-
-                // Parallax background size
-                parallaxBackgroundSize: '3840px 1200px',
-
-                dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
 </html>
